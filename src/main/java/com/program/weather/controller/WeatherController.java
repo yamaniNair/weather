@@ -3,6 +3,9 @@
  */
 package com.program.weather.controller;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import org.apache.log4j.Logger;
 
 import org.springframework.stereotype.Controller;
@@ -20,16 +23,13 @@ import com.program.weather.constant.Constant;
 public class WeatherController {
 	
 	private static final Logger LOGGER = Logger.getLogger(WeatherController.class);
-	
-	@RequestMapping("/currentWeather")
-	public ModelAndView printMessage(
-			@RequestParam(value=Constant.CURRENTWEATHER_API_PARAM1, 
-						  required=false,
-						  defaultValue=Constant.CURRENTWEATHER_API_PARAM1_DEFAULT) String name){
-		LOGGER.debug("[WeatherController] currentWeather api");
+
+	@RequestMapping(value = "/currentWeather")
+	public ModelAndView getCurrentWeather(@RequestParam(value="city", required=false, 
+			defaultValue=Constant.OPENWEATHERMAP_CITY_DEFAULT) String city){
+		LOGGER.debug("[WeatherController] currentWeather api : " + city);
 		ModelAndView mv = new ModelAndView("weather");
-		mv.addObject("message",Constant.MESSAGE);
-		mv.addObject("name",name);
+		mv.addObject("city",city);
 		return mv;
 	}
 }
