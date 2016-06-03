@@ -28,6 +28,7 @@
 	            {"_id":2171507,"name":"Wollongong","country":"AU","coord":{"lon":150.883331,"lat":-34.433331}}];
 	
 	//populate list of cities into option of citydropdown element
+	$("#cityDropdown").append($('<option></option>').val('None').html('-- Select --'));
 	$.each(json,function(key,value)
 	{
 		var newValue="currentWeather?city="+value.name;
