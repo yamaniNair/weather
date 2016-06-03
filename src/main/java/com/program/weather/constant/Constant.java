@@ -8,10 +8,13 @@ package com.program.weather.constant;
  *
  */
 public class Constant {
-	public static final String MESSAGE = "Main page for current weather based on selected cities";
-	
+	public final static String CONFIG_PROPERTIES = "/config/config.properties";
+
 	// currentWeather API
-	public static final String CURRENTWEATHER_API_PARAM1 = "name";
-	public static final String CURRENTWEATHER_API_PARAM1_DEFAULT = "Nair";
+	public static final String OPENWEATHERMAP_URL = "openweathermap.url";
+	public static final String OPENWEATHERMAP_APIKEY_VALUE = "openweathermap.apiKey.value";
+	public static final String OPENWEATHERMAP_APIKEY_NAME = "openweathermap.apiKey.name";
+	public static final String OPENWEATHERMAP_COUNTRY="openweathermap.weather.country";
+	public static final String OPENWEATHERMAP_CITY_DEFAULT = "Russell";
 	
 }
