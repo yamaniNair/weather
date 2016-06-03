@@ -25,7 +25,7 @@
 		  </tr>
 		  <tr>
 		    <th>Updated time</th>
-		    <td id="updateTime"> .... </td>
+		    <td id="updateTime"></td>
 		  </tr>
 		  <tr>
 		    <th>Weather</th>
@@ -33,11 +33,11 @@
 		  </tr>
 		  <tr>
 		    <th>Temperature</th>
-		    <td id="temperature"> .... </td>
+		    <td id="temperature"></td>
 		  </tr>
 		  <tr>
 		    <th>Wind</th>
-		    <td id="wind"> .... </td>
+		    <td id="wind"></td>
 		  </tr>
 		</table>
 	<% 
@@ -48,12 +48,14 @@
 </body>
  <script>
 		var city = document.getElementById("city").innerHTML;
+		//create api_url
 		var api_url = '<%=props.getProperty(Constant.OPENWEATHERMAP_URL) %>' + city +  
 						'<%=props.getProperty(Constant.OPENWEATHERMAP_COUNTRY) %>' + 
 						'<%=props.getProperty(Constant.OPENWEATHERMAP_APIKEY_NAME) %>' + 
 						'<%=props.getProperty(Constant.OPENWEATHERMAP_APIKEY_VALUE) %>';
 		console.log('openweathermap api: ');
 		console.log(api_url);	
+			//ajax call to get weather information from openWeatherMap
 			$.ajax({
 				url:api_url,
 				method:'GET',

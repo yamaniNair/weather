@@ -16,29 +16,24 @@
 		<h2>Choose City
 			<select name="cities" id="cityDropdown" onchange="window.location.href=this.value">
 			</select>
-			<%
-				String city = request.getParameter("cities");
-			%>
 		</h2>
 	</form>
 	
 	<a id="result"></a>
 	<script>
 	
+	//list of city value based on openWeatherMap json data
 	var json = [{"_id":2147714,"name":"Sydney","country":"AU","coord":{"lon":151.207321,"lat":-33.867851}},
 	            {"_id":2158177,"name":"Melbourne","country":"AU","coord":{"lon":144.963318,"lat":-37.813999}},
 	            {"_id":2171507,"name":"Wollongong","country":"AU","coord":{"lon":150.883331,"lat":-34.433331}}];
 	
+	//populate list of cities into option of citydropdown element
 	$.each(json,function(key,value)
 	{
 		var newValue="currentWeather?city="+value.name;
 		 $("#cityDropdown").append($('<option></option>').val(newValue).html(value.name));
 	});
-	
-	$('#cityDropdown').change(function () {
-        document.getElementById("cityDropdown").value = '<% out.print(city); %>';
-    });
-	
+
 	</script>
 </body>
 </html>
